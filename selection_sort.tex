@@ -19,7 +19,7 @@ int max(int* vector, int size) {
 \end{lstlisting}
 
 \subsection{Implementação Iterativa}
-\paragraph{Explicação da implementação}
+\paragraph{Explicação}
 Anteriormente nós definimos a função \textit{max()} para retornarmos o \textbf{índice} do maior elemento. Agora, nós vamos iterar sobre o nosso conjunto de dados (vetor) utilizando
 um \textit{while loop}. Dentro do \textit{while}, nós vamos pegar o índice do maior elemento e vamos trocar esse elemento com o que está na última posição. Em seguida, vamos fazer
 \textit{numberOfElements - 1}, pois já sabemos que o último elemento é o maior e, portanto, não faz sentido escolhermos um outro \textit{max} e comparar com o último elemento.
@@ -39,6 +39,12 @@ void selecaoIterativo(int* vector, int numberOfElements){
 \end{lstlisting}
 
 \subsection{Implementação Recursiva}
+\paragraph{Explicação}
+A ideia da implementação recursiva é a mesma da iterativa, mas aqui nós não precisamos de um \textit{while loop}, o que acaba deixando o código mais legível. Primeiramente, precisamos
+definir a condição de parada da nossa recursão, ou seja, em que momento eu \textbf{não quero} que a minha função chame ela mesma mais? No nosso caso, a nossa condição de parada é
+quando o \textit{numberOfElements} for \textbf{menor} que 2. Por outro lado, enquanto essa expressão não é verdadeira, n´os vamos fazer os mesmos procedimentos da implementação
+iterativa: vamos determinar o índice do maior elemento e vamos trocar ele com o último. Em seguida, vamos chamar a função mas o \textit{numberOfElements} vai ser decrementado em 1.
+As razões para isso é a mesma da implementação iterativa.
 \begin{lstlisting}[language=C]
 void selecaoRecursivo(int* vector, int numberOfElements){
     if(numberOfElements < 2){
