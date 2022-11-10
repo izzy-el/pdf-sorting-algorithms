@@ -1,6 +1,10 @@
 \section{\textit{Insertion Sort}}
 
 \subsection{Explicação do Algoritmo}
+A melhor analogia a ser fazer quando falamos de \textit{Insertion Sort} é um jogo de cartas. Você começa com a mão vazia e, conforme for recebendo as cartas, você as adiciona
+\textbf{em ordem} na sua mão, comparando essa nova carta com as que já estão na sua mão. Nós vamos iterar o conjunto de dados (vetor) e vamos comparar com os elementos anteriores.
+Se ele for menor, nós vamos dar um \textit{shift} em todos os elementos a partir da posição onde queremos colocar esse elemento.
+
 \subsection{Implementação Iterativa}
 \begin{lstlisting}[language=C]
 void insercaoIterativo(int* vector, int numberOfElements){
