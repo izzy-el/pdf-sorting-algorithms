@@ -1,0 +1,50 @@
+\section{\textit{Insertion Sort}}
+
+\subsection{Explicação do Algoritmo}
+\subsection{Implementação Iterativa}
+\begin{lstlisting}[language=C]
+void insercaoIterativo(int* vector, int numberOfElements){
+    int lixo = -1;
+    int n = 2;
+    while(n <= numberOfElements){
+        int aux = vector[n - 1];
+        vector[n - 1] = lixo;
+        int i = n - 2;
+        print(vector, n);
+        while(i >= 0 && vector[i] > aux) {
+            vector[i + 1] = vector[i];
+            vector[i] = lixo;
+            i--;
+            print(vector, n);
+        }
+        vector[i + 1] = aux;
+        print(vector, n);
+        n++;
+    }
+}
+
+\end{lstlisting}
+
+\subsection{Implementação Recursiva}
+\begin{lstlisting}[language=C]
+void insercaoRecursivo(int* vector, int numberOfElements){
+    int lixo = -1;
+    if(numberOfElements < 2)
+        return;
+
+    insercaoRecursivo(vector, numberOfElements - 1)
+    int aux = vector[n - 1];
+    int n = 2;
+    int i = n - 2;
+    print(vector, n);
+    
+    while(i >= 0 && vector[i] > aux) {
+        vector[i + 1] = vector[i];
+        vector[i] = lixo;
+        i--;
+        print(vector, n);
+    }
+    vector[i + 1] = aux;
+    print(vector, n);
+}
+\end{lstlisting}

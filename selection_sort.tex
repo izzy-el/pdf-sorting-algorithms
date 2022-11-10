@@ -1,0 +1,54 @@
+\section{\textit{Selection Sort}}
+
+\subsection{Explicação do Algoritmo}
+\textit{Selection Sort} é um algoritmo de ordenação que roda em tempo O(n²). A ideia por trás dele é \textbf{selecionar} o maior - ou menor, dependendo de como você deseja ordenar - 
+valor do conjunto de dados (vetor) e colocá-lo na última posição do vetor. Esse processo se repete com os n - 1 elemetos até os dois últimos.
+
+\subsection{Implementação da Função \textit{max()}}
+\begin{lstlisting}[language=C]
+int max(int* vector, int size) {
+    int max = 0;
+    for(int i = 0; i < size; i++) {
+        if(vector[i] > max) {
+            max = i; // Index of the maximum element
+        }
+    }
+    
+    return max;
+}
+\end{lstlisting}
+
+\subsection{Implementação Iterativa}
+\paragraph{Explicação da implementação}
+Anteriormente nós definimos a função \textit{max()} para retornarmos o \textbf{índice} do maior elemento. Agora, nós vamos iterar sobre o nosso conjunto de dados (vetor) utilizando
+um \textit{while loop}. Dentro do \textit{while}, nós vamos pegar o índice do maior elemento e vamos trocar esse elemento com o que está na última posição. Em seguida, vamos fazer
+\textit{numberOfElements - 1}, pois já sabemos que o último elemento é o maior e, portanto, não faz sentido escolhermos um outro \textit{max} e comparar com o último elemento.
+\begin{lstlisting}[language=C]
+void selecaoIterativo(int* vector, int numberOfElements){
+    while(numberOfElements > 1){
+        int max = max(vector, numberOfElements);
+        // Begin swap
+        int aux = vector[max];
+        vector[max] = vector[numberOfElements - 1];
+        vector[numberOfElements - 1] = aux;
+        // End swap
+        print(vector, numberOfElements);
+        numberOfElements--;
+    }
+}
+\end{lstlisting}
+
+\subsection{Implementação Recursiva}
+\begin{lstlisting}[language=C]
+void selecaoRecursivo(int* vector, int numberOfElements){
+    if(numberOfElements < 2){
+        return;
+    }
+    int max = max(vector, numberOfElements);
+    int aux = vector[max];
+    vector[max] = vector[numberOfElements - 1];
+    vector[numberOfElement - 1] = aux;
+    print(vector, numberOfElements);
+    selecaoRecursivo(vector, numberOfElements - 1);
+}
+\end{lstlisting}
