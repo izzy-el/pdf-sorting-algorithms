@@ -3,9 +3,22 @@
 \subsection{Explicação do Algoritmo}
 A melhor analogia a ser fazer quando falamos de \textit{Insertion Sort} é um jogo de cartas. Você começa com a mão vazia e, conforme for recebendo as cartas, você as adiciona
 \textbf{em ordem} na sua mão, comparando essa nova carta com as que já estão na sua mão. Nós vamos iterar o conjunto de dados (vetor) e vamos comparar com os elementos anteriores.
-Se ele for menor, nós vamos dar um \textit{shift} em todos os elementos a partir da posição onde queremos colocar esse elemento.
+Se ele for menor, nós vamos dar um \textit{shift} em todos os elementos a partir da posição onde queremos colocar esse elemento. Esse processo vai ser repetido até o vetor estar
+totalmente ordenado.
 
 \subsection{Implementação Iterativa}
+\paragraph{Explicação}
+Nós começamos definindo uma variável \textit{lixo} e uma variável \textit{n}. A primeira será usada para sabermos onde vamos \textbf{inserir} o novo elemento. A segunda
+variável define o tamanho do \textit{subarray} com o qual vamos trabalhar (inicialmente 2). Enquanto o tamanho do \textit{subarray} for menor ou igual ao tamanho do \textit{array} original, nós vamos:
+\begin{itemize}
+  \item Definir uma variável \textit{aux} com o valor do último elemento do \textit{subarray};
+  \item Colocar o valor \textit{lixo} (-1) na última posição do \textit{subarray};
+  \item Definir uma variável \textit{i}, que representa onde vamos começar nossa ordenação. Primeiramente vamos começar ordenando da posição 0 e depois da posição 1, e assim por diante.
+    Podemos fazer isso pois já sabemos que os elementos anteriores estão ordenados;
+  \item Criar um \textit{while loop} que vai rodar enquanto o valor de \textit{i} for maior ou igual a zero e o elemento na posição \textit{i} for maior que \textit{aux}. Dentro desse \textit{loop}
+    vamos movendo o valor -1 para a esquerda. A partir do momento que descobrirmos que \textit{aux} é menor que o elemento que estamos, vamos colocá-lo naquela posição.
+\end{itemize}
+
 \begin{lstlisting}[language=C]
 void insercaoIterativo(int* vector, int numberOfElements){
     int lixo = -1;
@@ -29,7 +42,54 @@ void insercaoIterativo(int* vector, int numberOfElements){
 
 \end{lstlisting}
 
+\paragraph{Exemplo}
+Com o objetivo de facilitar a visualização, vamos aplicar esse algoritmo a um vetor. No caso, o vetor em questão será de tamanho 6 e composto pelos seguintes elementos na seguinte ordem:
+\{9, 8, 2, 3, 5, 6\}. Chamando esta função (\textit{insercaoIterativo(vetor, 6)}), nós temos o \textit{output}:
+
+[9,-1](2)
+
+[-1,9](2)
+
+[8,9](2)
+
+[8,9,-1](3)
+
+[8,-1,9](3)
+
+[-1,8,9](3)
+
+[2,8,9](3)
+
+[2,8,9,-1](4)
+
+[2,8,-1,9](4)
+
+[2,-1,8,9](4)
+
+[2,3,8,9](4)
+
+[2,3,8,9,-1](5)
+
+[2,3,8,-1,9](5)
+
+[2,3,-1,8,9](5)
+
+[2,3,5,8,9](5)
+
+[2,3,5,8,9,-1](6)
+
+[2,3,5,8,-1,9](6)
+
+[2,3,5,-1,8,9](6)
+
+[2,3,5,6,8,9](6)
+
 \subsection{Implementação Recursiva}
+\paragraph{Explicação}
+A ideia por trás do algoritmo recursivo é a mesma do iterativo. A única diferença é que ao invés de usarmos dois \textit{while loops}, usamos apenas um. Aqui, nós vamos chamar a função
+dentro dela mesma mudando apenas o parâmetro \textit{numberOfElements}, pois queremos dividir o nosso \textit{array} original em vários \textit{subarrays} e ordenar eles. O nosso caso
+base, ou seja, o nosso caso de parada, é quando o \textit{numberOfElements} for menor que 2.
+
 \begin{lstlisting}[language=C]
 void insercaoRecursivo(int* vector, int numberOfElements){
     int lixo = -1;
