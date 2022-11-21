@@ -16,7 +16,7 @@ Nós vamos começar pelo elemento presente no \textit{index} 0 da lista/vetor e 
 \subsection{Implementação Iterativa}
 \begin{lstlisting}[language=C]
 void bubbleSort(int* vector, int numberOfElements) {
-    while(n > 2) {
+    while(numberOfElements > 2) {
         for(int i = 0; i < numberOfElements - 1; i++) {
             if(vector[i] > vector[i + 1]) {
                 int aux = vector[i];
