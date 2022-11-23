@@ -5,7 +5,7 @@
 Apesar de ser o mais simples, não é o mais eficiente. Como estamos comparando elementos adjacentes, nós temos que iterar a lista diversas vezes, comparando os elementos dois-a-dois. Ele é útil em casos onde a lista de elementos não é tão grande.
 
 \subsection{Explicação do Algoritmo}
-Nós vamos começar pelo elemento presente no \textit{index} 0 da lista/vetor e vamos comparar com o elemento presente no \textit{index} 1. Caso o primeiro elemento seja maior, nós vamos trocar ele com o segundo elemento. Após isso, nós vamos comparar o elemento do \textit{index} 1 com o elemento no \textit{index} 2. Se for maior, trocamos, caso contrário, apenas seguimos com o algoritmo. A imagem abaixo ilustra melhor essa ideia.
+Nós vamos começar pelo elemento presente no \textit{index} 0 da lista/vetor e vamos comparar com o elemento presente no \textit{index} 1. Caso o primeiro elemento seja maior, nós vamos trocar ele com o segundo elemento. Após isso, nós vamos comparar o elemento do \textit{index} 1 com o elemento no \textit{index} 2. Se for maior, trocamos, caso contrário, apenas seguimos com o algoritmo. Dessa forma, o algoritmo é \textbf{O(n²)}. A imagem abaixo ilustra melhor o funcionamento do algoritmo.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{assets/bubble_sort.png}
